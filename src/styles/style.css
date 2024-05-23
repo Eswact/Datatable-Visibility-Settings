@@ -96,6 +96,15 @@ main {
         transform: scale(0.95, 1.05);
     }
 }
+@keyframes wheel {
+    33% {
+        transform: rotate(-15deg) scale(1.025);
+    }
+
+    99% {
+        transform: rotate(375deg) scale(1.025);
+    }
+}
 /* general end */
 
 /* visibility settings start */
@@ -240,6 +249,7 @@ th div {
 }
 .paginate_button {
     padding: 10px;
+    margin-bottom: 2px;
     border-radius: 10px;
     border: 1px solid var(--main-color) !important;
     background-color: var(--main-light-color) !important;

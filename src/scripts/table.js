@@ -159,20 +159,27 @@ $(document).ready(function () {
                 //visibility
                 setColumnVisibility(stokTable, tableColumns);
                 //order
-                resetColReorderMD('#customers');
                 orderPref = setColumnOrder(stokTable, orderPref);
-                //close
+                //close modal
                 visSettingsClose();
                 //setPrefs
                 SetUserPrefs(visibilityPref, orderPref);
             });
             $(".vs-default").click(function () {
+                //visibility
                 $(".vs-columns input[type='checkbox']").prop('checked', true);
-                $(".vs-save").click();
+                setColumnVisibility(stokTable, tableColumns);
+                //order
+                orderPref = setDefaultColumnOrder(stokTable, orderPref);
+                //close modal
+                visSettingsClose();
+                //setPrefs
+                SetUserPrefs(visibilityPref, orderPref);
             });
             //Start
             SetVsColumns(stokTable, tableColumns, orderPref, visibilityPref);
             setColumnVisibility(stokTable, tableColumns);
+            resetColReorderMD('#customers');
     
             //Draggable
             let drag = document.querySelector('#visibility-settings ul');

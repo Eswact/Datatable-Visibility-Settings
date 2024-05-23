@@ -77,6 +77,18 @@ function setColumnOrder(table, orderPref) {
     return orderPref;
 }
 
+function setDefaultColumnOrder(table, orderPref) { 
+    let orderArray = [];
+    let realOrderArray = [];
+    for (var i = 0; i < orderPref.length; i++) {
+        orderArray.push($(`#visibility-settings ul li label[data-realorder=${i}]`).data('order'));
+        realOrderArray.push(i);
+    }
+    table.colReorder.order(orderArray);
+    orderPref = realOrderArray;
+    return orderPref;
+}
+
 function resetColReorderMD(tableId) {
     $($(tableId).DataTable().columns().header()).each(function () {
         var md = $._data($(this)[0]).events.mousedown;
